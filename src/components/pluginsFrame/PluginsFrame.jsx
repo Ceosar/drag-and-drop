@@ -7,9 +7,11 @@ import { DragDropContext } from 'react-beautiful-dnd';
 
 const PluginsFrame = () => {
     const [allPlugins, setAllPlugins] = useState([
-        {id:1, pluginName:"Plagin1"},
-        {id:2, pluginName:"Plagin2"},
-        {id:3, pluginName:"Plagin3"}
+        { id: 1, pluginName: "Plagin1" },
+        { id: 2, pluginName: "Plagin2" },
+        { id: 3, pluginName: "Plagin3" },
+        { id: 4, pluginName: "Plagin4" },
+        { id: 5, pluginName: "Plagin5" }
     ])
     const [pluginOff, setPluginOff] = useState(allPlugins);
     const [pluginOn, setPluginOn] = useState([]);
@@ -18,19 +20,30 @@ const PluginsFrame = () => {
         if (!result.destination) {
             return;
         }
-        if(result.destination.droppableId == "frame"){
-            const match = result.draggableId.match(/-(\d+)/);
-            const pluginNumber = match ? match[1] : null;
-            console.log(allPlugins[pluginNumber])
-            setPluginOn(allPlugins[pluginNumber])
+        else {
+            const draggedPluginId = parseInt(result.draggableId.split('-')[1]);
+            const draggedPlugin = allPlugins.find((plugin) => plugin.id === draggedPluginId);
+
+            if (!draggedPlugin) {
+                return;
+            }
+            console.log(result.source.droppableId)
+
+            if (result.destination.droppableId === 'frame' && result.source.droppableId === 'toolbar') {
+                setPluginOn((prevPlugins) => [...prevPlugins, draggedPlugin]);
+                setPluginOff((prevPlugins) => prevPlugins.filter((plugin) => plugin.id !== draggedPluginId));
+            } else if (result.destination.droppableId === 'toolbar' && result.source.droppableId === 'frame') {
+                setPluginOff((prevPlugins) => [...prevPlugins, draggedPlugin]);
+                setPluginOn((prevPlugins) => prevPlugins.filter((plugin) => plugin.id !== draggedPluginId));
+            }
         }
     }
 
     return (
         <div className='plugins-frame_wrapper'>
             <DragDropContext onDragEnd={onDragEnd}>
-                <Toolbar plugins={pluginOff} />
                 <Frame plugins={pluginOn}/>
+                <Toolbar plugins={pluginOff} />
             </DragDropContext>
         </div>
     );

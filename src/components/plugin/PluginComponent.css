@@ -1,6 +1,17 @@
 .plugin-component_wrapper{
-    width: 70%;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: rgb(144, 144, 193);
+    /* width: 70%; */
+    /* margin: 0 auto; */
+    /* padding: 10px; */
+    /* background-color: rgb(144, 144, 193); */
 }
+
+.dragging{
+    width: 70px !important;
+    height: 70px !important;
+}
+
+/* .selected{
+    background-color: green !important;
+    width: 100px !important;
+    height: 100px !important;
+} */

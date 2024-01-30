@@ -10,22 +10,22 @@ const Toolbar = ({ plugins }) => {
         setSelectedPlugin(index);
     };
 
-    console.log(plugins)
-
     return (
         <Droppable droppableId="toolbar">
             {(provided, snapshot) => (
                 <div
-                    className={`toolbar_wrapper ${snapshot.isDraggingOver ? 'dragging-over' : ''}`}
+                    className={`toolbar_wrapper  ${snapshot.isDraggingOver ? 'dragging-over' : ''}`}
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                 >
                     {plugins && plugins.map((element, index) => (
                         <PluginComponent
-                            key={index}
+                            key={element.id}
+                            index={index}
                             plugins={element}
-                            isSelected={index === selectedPlugin}
-                            onSelect={() => handleSelectPlugin(index)}
+                            isSelected={element.id === selectedPlugin}
+                            onSelect={() => handleSelectPlugin(element.id)}
+                            className="toolbar_plugin-component"
                         />
                     ))}
                     {provided.placeholder}
