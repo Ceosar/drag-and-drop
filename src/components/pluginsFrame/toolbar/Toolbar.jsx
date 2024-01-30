@@ -1,26 +1,37 @@
 import React, { useState } from 'react';
 import "./Toolbar.css"
-import PluginComponent from '../plugin/PluginComponent';
+import PluginComponent from '../../plugin/PluginComponent';
+import { Droppable } from 'react-beautiful-dnd';
 
-const Toolbar = () => {
-    const [draggetItem, setDraggetItem] = useState(null);
+const Toolbar = ({ plugins }) => {
+    const [selectedPlugin, setSelectedPlugin] = useState(null);
 
-    const handleDragStart = (e, plugin) => {
-        e.dataTransfer.setData("plugin", plugin);
-        setDraggetItem(plugin);
-    }
+    const handleSelectPlugin = (index) => {
+        setSelectedPlugin(index);
+    };
 
-    const handleDragEnd = () => {
-        setDraggetItem(null);
-    }
+    console.log(plugins)
 
     return (
-        <div className='toolbar_wrapper'>
-            <PluginComponent
-                onDragStart={(e, plugin) => handleDragStart(e, plugin)}
-                onDragEnd={handleDragEnd}
-            />
-        </div>
+        <Droppable droppableId="toolbar">
+            {(provided, snapshot) => (
+                <div
+                    className={`toolbar_wrapper ${snapshot.isDraggingOver ? 'dragging-over' : ''}`}
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                >
+                    {plugins && plugins.map((element, index) => (
+                        <PluginComponent
+                            key={index}
+                            plugins={element}
+                            isSelected={index === selectedPlugin}
+                            onSelect={() => handleSelectPlugin(index)}
+                        />
+                    ))}
+                    {provided.placeholder}
+                </div>
+            )}
+        </Droppable>
     );
 }
 

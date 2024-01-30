@@ -1,28 +1,35 @@
 import React, { useState } from 'react';
 import "./Frame.css"
+import { Droppable } from 'react-beautiful-dnd';
+import PluginComponent from '../../plugin/PluginComponent';
 
-const Frame = () => {
-    const [droppedItem, setDroppedItem] = useState(null);
+const Frame = ({plugins}) => {
+    const [selectedPlugin, setSelectedPlugin] = useState(null);
 
-    const handleDrop = (e) => {
-        e.preventDefault();
-        const droppedItem = e.dataTransfer.getData("plugin")
-        setDroppedItem(droppedItem);
-        console.log("drop")
-    }
-
-    const handleDragOver = (e) => {
-        e.preventDefault();
-    }
-
+    const handleSelectPlugin = (index) => {
+        setSelectedPlugin(index);
+    };
+    console.log(plugins)
     return (
-        <div
-            className='frame_wrapper'
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-        >
-            {droppedItem && <div>{droppedItem}</div>}
-        </div>
+        <Droppable droppableId="frame">
+            {(provided, snapshot) => (
+                <div
+                    className={`frame_wrapper ${snapshot.isDraggingOver ? 'dragging-over' : ''}`}
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                >
+                    {plugins && plugins.map((element, index) => (
+                        <PluginComponent
+                            key={index}
+                            plugins={element}
+                            isSelected={index === selectedPlugin}
+                            onSelect={() => handleSelectPlugin(index)}
+                        />
+                    ))}
+                    {provided.placeholder}
+                </div>
+            )}
+        </Droppable>
     );
 }
 
