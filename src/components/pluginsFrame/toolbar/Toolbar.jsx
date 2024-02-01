@@ -26,6 +26,7 @@ const Toolbar = ({ plugins }) => {
                             isSelected={element.id === selectedPlugin}
                             onSelect={() => handleSelectPlugin(element.id)}
                             className="toolbar_plugin-component"
+                            isOnFrame={false}
                         />
                     ))}
                     {provided.placeholder}

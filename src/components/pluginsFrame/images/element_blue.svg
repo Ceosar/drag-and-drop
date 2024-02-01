@@ -1,0 +1,29 @@
+<svg width="276" height="137" viewBox="0 0 276 137" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_982_9790)">
+<path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M1.65234 93.5361L47.603 90.3743L93.5938 102.77L140.194 85.7669L186.568 64.4969L233.176 61.0753L278.106 3.27148V138.035L1.65234 137.404V93.5361Z" fill="url(#paint0_linear_982_9790)"/>
+<path d="M1.88672 94.8982L47.6775 90.5398L93.6932 103.4L140.114 86.3968L186.129 64.9858L232.55 61.5184L278.341 3.90137" stroke="#5B8FF9" stroke-width="1.25947" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1.88921" cy="94.5835" r="1.88921" fill="#5B8FF9"/>
+<circle cx="1.88921" cy="94.5835" r="2.20408" stroke="white" stroke-opacity="0.95" stroke-width="0.629736"/>
+<circle cx="47.6236" cy="90.1753" r="1.88921" fill="#5B8FF9"/>
+<circle cx="47.6236" cy="90.1753" r="2.20408" stroke="white" stroke-opacity="0.95" stroke-width="0.629736"/>
+<circle cx="94.2212" cy="103.4" r="1.88921" fill="#5B8FF9"/>
+<circle cx="94.2212" cy="103.4" r="2.20408" stroke="white" stroke-opacity="0.95" stroke-width="0.629736"/>
+<circle cx="140.194" cy="86.397" r="1.88921" fill="#5B8FF9"/>
+<circle cx="140.194" cy="86.397" r="2.20408" stroke="white" stroke-opacity="0.95" stroke-width="0.629736"/>
+<circle cx="186.163" cy="65.6158" r="1.88921" fill="#5B8FF9"/>
+<circle cx="186.163" cy="65.6158" r="2.20408" stroke="white" stroke-opacity="0.95" stroke-width="0.629736"/>
+<circle cx="232.135" cy="61.8365" r="1.88921" fill="#5B8FF9"/>
+<circle cx="232.135" cy="61.8365" r="2.20408" stroke="white" stroke-opacity="0.95" stroke-width="0.629736"/>
+<circle cx="278.104" cy="3.9019" r="1.88921" fill="#5B8FF9"/>
+<circle cx="278.104" cy="3.9019" r="2.20408" stroke="white" stroke-opacity="0.95" stroke-width="0.629736"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_982_9790" x1="278.106" y1="138.035" x2="278.106" y2="3.27148" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#5B8FF9"/>
+</linearGradient>
+<clipPath id="clip0_982_9790">
+<rect width="276" height="136.192" fill="white" transform="translate(0 0.807617)"/>
+</clipPath>
+</defs>
+</svg>

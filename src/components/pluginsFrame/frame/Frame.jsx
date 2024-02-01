@@ -19,18 +19,15 @@ const Frame = ({ plugins, frameIndex }) => {
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                 >
-                    {plugins
-                        .filter((plugin) => plugin.tableIndex === frameIndex)
-                        .map((element, index) => (
-                            <PluginComponent
-                                key={index}
-                                index={index}
-                                plugins={element}
-                                isSelected={element.id === selectedPlugin}
-                                onSelect={() => handleSelectPlugin(element.id)}
-                                className="frame_plugin-component"
-                            />
-                        ))}
+                    {plugins.map((element, index) => (
+                        <PluginComponent
+                            key={element.id}
+                            index={index}
+                            plugins={element}
+                            className="frame_plugin-component"
+                            isOnFrame={true}
+                        />
+                    ))}
                     {provided.placeholder}
                 </div>
             )}

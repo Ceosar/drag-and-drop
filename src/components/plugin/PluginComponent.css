@@ -6,8 +6,9 @@
 }
 
 .dragging{
-    width: 70px !important;
-    height: 70px !important;
+    scale: 90% !important;
+    /* width: 70px !important; */
+    /* height: 70px !important; */
 }
 
 /* .selected{
@@ -15,3 +16,50 @@
     width: 100px !important;
     height: 100px !important;
 } */
+
+.plugin-component-on{
+    width: 100%;
+    height: 100%;
+    background: url("./../pluginsFrame/images/element_blue.svg") no-repeat center center fixed;
+    background-size: cover;
+    scale: 99%;
+}
+
+.plugin-component-on__title{
+    padding: 10px 10%;
+    width: 100%;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.plugin-component-on__name{
+    
+}
+
+
+.plugin-component-on__date{
+    background-color: rgba(236, 236, 236, 1);
+    border-radius: 30px;
+    padding: 5px 15px;
+}
+
+.plugin-component-on_props{
+    padding: 0 10%;
+    font-size: 48px;
+}
+
+.plugin-component-on_svg{
+    width: 100%;
+    height: 100%;
+}
+
+.plugin-component-off{
+
+}
+
+.plugin-component-off__name p{
+    width: 100%;
+    text-overflow: ellipsis;
+}
