@@ -27,12 +27,13 @@ const PluginsFrame = () => {
             if (!draggedPlugin) {
                 return;
             }
-            console.log(result.source.droppableId)
+            console.log(result)
 
-            if (result.destination.droppableId === 'frame' && result.source.droppableId === 'toolbar') {
-                setPluginOn((prevPlugins) => [...prevPlugins, draggedPlugin]);
+            if (result.destination.droppableId.startsWith('frame') && result.source.droppableId === 'toolbar') {
+                const updatedPlugin = { ...draggedPlugin, tableIndex: parseInt(result.destination.droppableId.split('-')[1]) };
+                setPluginOn((prevPlugins) => [...prevPlugins, updatedPlugin]);
                 setPluginOff((prevPlugins) => prevPlugins.filter((plugin) => plugin.id !== draggedPluginId));
-            } else if (result.destination.droppableId === 'toolbar' && result.source.droppableId === 'frame') {
+            } else if (result.destination.droppableId === 'toolbar' && result.source.droppableId.startsWith('frame')) {
                 setPluginOff((prevPlugins) => [...prevPlugins, draggedPlugin]);
                 setPluginOn((prevPlugins) => prevPlugins.filter((plugin) => plugin.id !== draggedPluginId));
             }
